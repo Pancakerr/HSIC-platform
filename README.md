@@ -4,6 +4,27 @@ This is a deep learning platform for hyperspectral classification by pytorch, in
 ## Table of contents
 - [Background](#background)
 - [Install](#install)
+  - [Requirement](#requirement)
 - [Usage](#usage)
+  - [Dataset](#dataset)
+  - [Models](#Models)
+  - [Examples](#examples)
+- [License](#license)
+
 
 ## Background
+
+## Install
+
+### Requirement
+
+## Usage
+
+### Dataset
+
+### Models
+
+### Examples
+
+## License
+
