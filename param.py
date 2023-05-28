@@ -1,18 +1,21 @@
 import argparse
 
 def get_parser():
-    
+
     parser = argparse.ArgumentParser()
     parser.add_argument('--DATASET', type=str, default='IP', help="Dataset to use.(IP, UP, UH)")
     parser.add_argument('--MODEL', type=str, default='SSRNet',
                         help="Model to train. Available:\n"
-                            "SSRNet"
-                            "HybridSN"
                             "A2S2KResNet"
+                            "CNN1D"
+                            "FullyContNet"
+                            "GhostNet"
                             "SFormer_px"
                             "SFormer_pt"
                             "VIT"
                             "FullyContNet"
+                            "MLWBDN"
+                            
                             )
     parser.add_argument('--MODEL_MODE', type=int, default= None,
                         help="optional for SSRNet and set 0 for other models (defaults to 0)")
@@ -47,8 +50,8 @@ def get_parser():
     parser.add_argument('--PATCH_SIZE', type=int, default= None,
                         help="Size of the spatial neighbourhood (optional, if "
                         "absent will be set by the model)")
-    parser.add_argument('--ATT_MODE',  choices=['LCA','CBAM','CAM','SAM','Base'],default='LCA',
-                        help="select attention mechanism for SFCN (default LCA)")
+    parser.add_argument('--ATT_MODE',  choices=['LCA','CBAM','CAM','SAM','Base'],default='LCA',help="select attention mechanism for SFCN (default LCA)")
+    parser.add_argument('--MLWBDN-LEVEL', type=int,default=3,help="Level of scales (default: 1)" )
     parser.add_argument('--RUNS', type=int, default=1, help="Number of runs (default: 1)")
     parser.add_argument('--ENV_NAME', type=str, default='exp',
                         help="env name of visdom, for paremeter optimization vision")

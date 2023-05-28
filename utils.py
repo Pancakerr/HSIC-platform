@@ -360,19 +360,20 @@ def get_model(**config):
                                     lr=config['LR'], weight_decay=config['WEIGHT_DECAY'])
         lr_scheduler = 'Poly'
     
-    elif config['MODEL'] in ['MLWBDN-L1','MLWBDN-L2','MLWBDN-L3']:
+    elif config['MODEL'] == 'MLWBDN':
         if config['EPOCH'] == None :  config['EPOCH'] = 300
         if config['BATCH_SIZE'] == None :  config['BATCH_SIZE'] = 104 if config['DATASET'] == 'IP' else 225 if config['DATASET'] == 'UP' else 106
         if config['LR'] == None :  config['LR'] = 0.005 if config['DATASET'] == 'IP' else 0.01
         if config['SAMPLE_MODE'] == None :  config['SAMPLE_MODE'] = 'PWS'
         if config['WEIGHT_DECAY'] == None :  config['WEIGHT_DECAY'] = 1e-5
-        if config['MODEL'] == 'MLWBDN-L1': 
+        
+        if config['MLWBDN-LEVEL'] == 1: 
             if config['PATCH_SIZE'] == None: config['PATCH_SIZE'] = 10
             block_num = 1
-        elif config['MODEL'] == 'MLWBDN-L2': 
+        elif config['MLWBDN-LEVEL'] == 2: 
             if config['PATCH_SIZE'] == None: config['PATCH_SIZE'] = 16
             block_num = 2
-        elif config['MODEL'] == 'MLWBDN-L3': 
+        elif config['MLWBDN-LEVEL'] == 3: 
             if config['PATCH_SIZE'] == None: config['PATCH_SIZE'] = 24
             block_num = 3
         cmp_rate = 0.1 if config['DATASET'] == 'UP' or 'IP' else 0.2
