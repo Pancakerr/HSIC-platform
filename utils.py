@@ -387,21 +387,6 @@ def get_model(**config):
         # lr_scheduler = 'Poly'
         lr_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer,mode= 'min',factor=0.5,patience=config['EPOCH']//4,verbose=True)
 
-    elif config['MODEL'] == 'LCA-FCN':
-        config['NORM'] = True
-        config['MODEL_MODE'] = 0
-        if config['LR'] == None : config['LR'] = 0.01
-        if config['WEIGHT_DECAY'] == None : config['WEIGHT_DECAY'] = 1e-5
-        if config['BATCH_SIZE'] == None : config['BATCH_SIZE'] = 1
-        if config['EPOCH'] == None :  config['EPOCH'] = 300
-        if config['SAMPLE_MODE'] == None :  config['SAMPLE_MODE'] = 'FIS'
-        if config['PATCH_SIZE'] == None :
-            config['PATCH_SIZE'] = 13 if config['DATASET'] in ['IP'] else 15
-        model = LCA_FCN(config['N_PCA'],config['PATCH_SIZE'],config['NUM_CLASS'],ratio = 3, hid_layer=3,hid_num=69,act='leaky_relu',att_mode=config['ATT_MODE'])
-        criterion = nn.CrossEntropyLoss(ignore_index=-1)
-        optimizer = torch.optim.SGD(model.parameters(), lr=config['LR'], momentum=0.9,weight_decay=config['WEIGHT_DECAY'])
-        # lr_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer,mode= 'min',factor=0.5,patience=config['EPOCH']//4,verbose=True)
-
     elif config['MODEL'] == 'GhostNet':
         config['NORM'] = True
         config['MODEL_MODE'] = 0
@@ -429,7 +414,6 @@ def get_model(**config):
         criterion = nn.CrossEntropyLoss(ignore_index=-1)
         optimizer = torch.optim.Adam(model.parameters(),lr=config['LR'],weight_decay=config['WEIGHT_DECAY'])
         # lr_scheduler = 'Poly'
-
 
     elif config['MODEL'] == 'M3DCNN':
         config['NORM'] = True

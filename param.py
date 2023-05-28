@@ -5,17 +5,22 @@ def get_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument('--DATASET', type=str, default='IP', help="Dataset to use.(IP, UP, UH)")
     parser.add_argument('--MODEL', type=str, default='SSRNet',
-                        help="Model to train. Available:\n"
+                        help="Select Model. Available:\n"
+                            "SSRNet"
                             "A2S2KResNet"
                             "CNN1D"
                             "FullyContNet"
                             "GhostNet"
+                            "HybridSN"
+                            "M3DCNN"
+                            "MLWBDN"
+                            "MobileNet"
+                            "SSFCN"
+                            "SSUN"
+                            "UNet"
                             "SFormer_px"
                             "SFormer_pt"
                             "VIT"
-                            "FullyContNet"
-                            "MLWBDN"
-                            
                             )
     parser.add_argument('--MODEL_MODE', type=int, default= None,
                         help="optional for SSRNet and set 0 for other models (defaults to 0)")
