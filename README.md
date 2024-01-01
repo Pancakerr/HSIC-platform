@@ -44,7 +44,11 @@ We also provide many basic parameters for training and test such as *batchsize, 
 ## Acknowledge
 
 [DotWang/FullyContNet](https://github.com/DotWang/FullyContNet)
+
 [eecn/Hyperspectral-Classification](https://github.com/eecn/Hyperspectral-Classification)
+
 [danfenghong/IEEE_TGRS_SpectralFormer](https://github.com/danfenghong/IEEE_TGRS_SpectralFormer)
+
 [YonghaoXu/SSFCN](https://github.com/YonghaoXu/SSFCN)
+
 [suvojit-0x55aa/A2S2K-ResNet](https://github.com/suvojit-0x55aa/A2S2K-ResNet)
