@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 from torch.nn import init
 import torch.nn.functional as F
-from torch.nn.modules.batchnorm import BatchNorm2d
+# from torch.nn.modules.batchnorm import BatchNorm2d
 from torchinfo import summary
 import math
 try:
